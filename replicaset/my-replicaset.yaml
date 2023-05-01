@@ -1,0 +1,23 @@
+apiVersion: apps/v1 # Define a versão da API do Kubernetes
+kind: ReplicaSet # Define o tipo de objeto a ser criado, que é um ReplicaSet.
+metadata: # Fornece metadados adicionais para o objeto ReplicaSet, como nome e rótulos.
+  name: frontend-rs # Nome do ReplicaSet
+  labels:
+    app: frontend # Rótulo que identifica este objeto em outros componentes do Kubernetes.
+
+spec: # Define as especificações do objeto ReplicaSet.
+  replicas: 10 # Define o número de réplicas do pod que o ReplicaSet deve gerenciar.
+
+  selector: # Define o seletor para o ReplicaSet com base em rótulos de outros objetos no Kubernetes.
+    matchLabels:
+      apps: my-app # Selecionar pods com esse rotulo
+
+  template: # Define um modelo que é usado pelo ReplicaSet para criar e gerenciar réplicas de pods.
+    metadata: # Fornece metadados adicionais para o objeto Pod criado pelo ReplicaSet
+      name: my-pod-webserver # Define o nome do Pod criado pelo ReplicaSet como my-pod-webserver.
+      labels:
+        apps: my-app # Rótulo que identifica este pod em outros componentes do Kubernetes.
+    spec: # Define as especificações do objeto Pod criado pelo ReplicaSet.
+      containers: # Define os contêineres que serão executados no pod.
+        - name: my-container-nginx # Define o nome do contêiner
+          image: nginx # Define a imagem Docker usada para criar o contêiner.
