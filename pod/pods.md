@@ -12,25 +12,25 @@ de armazenamento, rede compartilhada e uma especificação de como executar os c
 Lembrando que se o Pod estiver ativo, ele será alterado com base nas configurações do arquivo.
 
 ```bash
-  kubectl apply -f <arquivo>
+kubectl apply -f <arquivo>
 ```
 
 ### Visualizar todos os Pods ativos
 
 ```bash
-  kubectl get pods
+kubectl get pods
 ```
 
 ### Deletar um Pod
 
 ```bash
-  kubectl delete pod <nome-do-pod>
+kubectl delete pod <nome-do-pod>
 ```
 
 Também é possivel deletar varios pods de uma só vez.
 
 ```bash
-  kubectl delete pods <nome-dos-pods>
+kubectl delete pods <nome-dos-pods>
 ```
 
 ## Documentação Oficial
